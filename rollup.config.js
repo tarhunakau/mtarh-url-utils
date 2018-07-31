@@ -8,7 +8,6 @@ const env = process.env.NODE_ENV;
 
 const config = {
   input: 'src/index.js',
-  external: ['react', 'react-dom'],
   output: {
     format: 'umd',
     name: 'npmPackageES6Boilerplate',
