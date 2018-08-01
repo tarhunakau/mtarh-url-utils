@@ -64,6 +64,8 @@
     "rollup-plugin-uglify": "3.0.0"
   },
   "jest": {
-    "testEnvironment": "node"
+    "verbose": true,
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost/"
   }
 }
