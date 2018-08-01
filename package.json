@@ -37,9 +37,7 @@
     "prepublish": "npm run clean && npm run test && npm run flow && npm run lint && npm run build"
   },
   "peerDependencies": {},
-  "dependencies": {
-    "axios": "^0.18.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "6.26.0",
     "babel-eslint": "8.2.3",
