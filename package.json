@@ -1,6 +1,6 @@
 {
   "name": "mtarh-url-utils",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "My own helpers for working with URLs",
   "keywords": [
     "npm-package",
@@ -22,6 +22,7 @@
     "url": "https://github.com/BLRplex/mtarh-url-utils/issues"
   },
   "main": "lib/index.js",
+  "typings": "declarations/index.d.ts",
   "scripts": {
     "clean": "rimraf ./coverage ./lib",
     "dev": "cross-env NODE_ENV=development rollup -c -o lib/index.js",
