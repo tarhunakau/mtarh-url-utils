@@ -1,6 +1,6 @@
 {
   "name": "mtarh-url-utils",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "My own helpers for working with URLs",
   "keywords": [
     "npm-package",
