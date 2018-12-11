@@ -1,6 +1,10 @@
 declare module 'mtarh-url-utils' {
-  export const queryObjectToString: (query: object, appendQueryChar: boolean = true) => string;
-  export const queryStringToObject = (query: string) => object;
-  export const mergeQueries = (...queries: string | object) => object;
-  export const pushQueryArguments = (url: string, ...queries: string | object) => string;
+  export type AnyObject = {
+    [key: string]: any;
+  }
+
+  export const queryObjectToString: (query: AnyObject, appendQueryChar: boolean) => string;
+  export const queryStringToObject: (query: string) => AnyObject;
+  export const mergeQueries: (...queries: (string | AnyObject)[]) => AnyObject;
+  export const pushQueryArguments: (url: string, ...queries: (string | AnyObject)[]) => string;
 }
