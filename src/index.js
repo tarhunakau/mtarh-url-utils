@@ -3,11 +3,11 @@ import {
   queryStringToObject,
   mergeQueries,
   pushQueryArguments,
-} from './urlHelpers';
+} from './urlHelpers'
 
 module.exports = {
   queryObjectToString,
   queryStringToObject,
   mergeQueries,
   pushQueryArguments,
-};
+}

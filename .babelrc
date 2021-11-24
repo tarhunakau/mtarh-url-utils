@@ -1,21 +1,9 @@
 {
   "presets": [
-    [ "env", { "modules": false } ],
-    "stage-0",
-    "flow"
+    [
+      "@babel/preset-env",
+      { "targets": { "node": "current" }}
+    ]
   ],
-
-  "env": {
-    "test": {
-      "presets": [
-        "env"
-      ]
-    }
-  },
-
-  "plugins": [
-    ["module-resolver", {
-      "root": ["./src"]
-    }]
-  ]
+  "plugins": []
 }

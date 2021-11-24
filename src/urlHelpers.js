@@ -10,14 +10,14 @@
 export const queryObjectToString = (query, appendQueryChar = true) => {
   const queryFragments = Object
     .keys(query)
-    .map(key => `${key}=${query[key]}`);
+    .map(key => `${key}=${query[key]}`)
 
-  const queryString = queryFragments.join('&');
+  const queryString = queryFragments.join('&')
 
   return appendQueryChar
     ? `?${queryString}`
-    : queryString;
-};
+    : queryString
+}
 
 /**
  * Transforms query string in object
@@ -26,19 +26,19 @@ export const queryObjectToString = (query, appendQueryChar = true) => {
  * into object.
  * @returns {object}
  */
-export const queryStringToObject = (query) => {
-  const queryObject = {};
+export const queryStringToObject = query => {
+  const queryObject = {}
 
   query
     .replace('?', '')
     .split('&')
-    .forEach((queryFragment) => {
-      const [key, value] = queryFragment.split('=');
-      queryObject[key] = value;
-    });
+    .forEach(queryFragment => {
+      const [key, value] = queryFragment.split('=')
+      queryObject[key] = value
+    })
 
-  return queryObject;
-};
+  return queryObject
+}
 
 /**
  * Merges queries in one.
@@ -47,18 +47,18 @@ export const queryStringToObject = (query) => {
  * @returns {object}
  */
 export const mergeQueries = (...queries) => {
-  const mergeCandidats = [];
+  const mergeCandidats = []
 
-  queries.forEach((query) => {
+  queries.forEach(query => {
     const queryObject = typeof query === 'string'
       ? queryStringToObject(query)
-      : query;
+      : query
 
-    mergeCandidats.push(queryObject);
-  });
+    mergeCandidats.push(queryObject)
+  })
 
-  return Object.assign(...mergeCandidats);
-};
+  return Object.assign(...mergeCandidats)
+}
 
 /**
  * Injects new (or overrides existing) query arguments in url.
@@ -70,18 +70,14 @@ export const mergeQueries = (...queries) => {
  * @throws exception when URL is incorrect and could not be parsed.
  */
 export const pushQueryArguments = (url, ...queries) => {
-  try {
-    const urlObject = new URL(url);
-    const { origin, pathname } = urlObject;
+  const urlObject = new URL(url)
+  const { origin, pathname } = urlObject
 
-    const urlQueryObject = urlObject && urlObject.search
-      ? queryStringToObject(urlObject.search)
-      : {};
+  const urlQueryObject = urlObject && urlObject.search
+    ? queryStringToObject(urlObject.search)
+    : {}
 
-    const mergedQuery = mergeQueries(urlQueryObject, ...queries);
+  const mergedQuery = mergeQueries(urlQueryObject, ...queries)
 
-    return `${origin}${pathname}${queryObjectToString(mergedQuery)}`;
-  } catch (e) {
-    throw e;
-  }
-};
+  return `${origin}${pathname}${queryObjectToString(mergedQuery)}`
+}
